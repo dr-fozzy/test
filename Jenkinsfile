@@ -2,7 +2,7 @@
 node {
   checkout scm
 
-  def name = ("env.BRANCH_NAME =~ /(feature|hotfix)\/([a-zA-Z0-9_-]{0,})/)
+  def name = ("env.BRANCH_NAME =~ /(feature|hotfix)/([a-zA-Z0-9_-]{0,})/)
   name = name[0][2]
 
   docker.image('abm/webapp').inside("
