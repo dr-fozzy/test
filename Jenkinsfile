@@ -1,6 +1,6 @@
 node {
   checkout scm
-  docker.image('abm/webapp', '
+  docker.image('abm/webapp').inside('
 	  -d
 	  --name ${env.BRANCH_NAME}
 	  --restart=always
@@ -9,7 +9,7 @@ node {
 	  -v $(pwd):/home/california/applications/california/current/public
 	  -w /home/california/applications/california/current/public
 	  -e VIRTUAL_HOST=${env.BRANCH_NAME}
-  ').inside {
+    ') {
     sh 'nginx'
   }
 }
