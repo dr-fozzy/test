@@ -2,7 +2,9 @@
 node {
   checkout scm
   
-  shell "/bin/bash -l -c"
+  shell "/bin/bash -li -c"
   
+  sh "env"
+  sh "rvm use"
   sh "env"
 }
