@@ -2,9 +2,17 @@
 node {
   checkout scm
   
-  shell "/var/lib/jenkins/.rvm/bin/rvm-shell"
+  def RVM_ENV = sh ( script: "rvm use && env", returnStdout: true).trim()
+
+  properties([ 
+    [
+      $class: 'EnvInjectJobProperty',
+      info: [loadFilesFromMaster: true, propertiesContent: RVM_ENV],
+      keepBuildVariables: true, keepJenkinsSystemVariables: true,
+      on: true
+    ]
+  ])
   
-  sh "env"
-  sh "rvm use"
+  
   sh "env"
 }
