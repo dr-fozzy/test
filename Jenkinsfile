@@ -2,7 +2,7 @@
 node {
   checkout scm
   
-  echo $shell
+  shell "env"
   
   rvm "env"
   rvm "bundle install"
