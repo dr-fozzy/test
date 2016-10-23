@@ -2,7 +2,7 @@
 node {
   checkout scm
   
-  shell "/bin/bash -li -c"
+  shell "/var/lib/jenkins/.rvm/bin/rvm-shell"
   
   sh "env"
   sh "rvm use"
