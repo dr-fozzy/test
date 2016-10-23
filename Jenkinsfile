@@ -2,10 +2,7 @@
 node {
   checkout scm
   
-  shell "env"
+  shell "/bin/bash -l -c"
   
-  rvm "env"
-  rvm "bundle install"
-  
-
+  sh "env"
 }
