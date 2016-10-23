@@ -2,8 +2,8 @@
 node {
   checkout scm
   
-  def RVM_ENV = sh ( script: "rvm use && env", returnStdout: true).trim()
-
+  def RVM_ENV = sh ( script: "/bin/bash -li -c 'rvm use && env'", returnStdout: true).trim()
+  
   properties([ 
     [
       $class: 'EnvInjectJobProperty',
